@@ -1,15 +1,28 @@
 from flask import Flask, redirect, url_for, render_template
+from flask_sqlalchemy import SQLAlchemy
+from os import path
+from flask_login import LoginManager
+from flask_admin import Admin
 
-app = Flask(__name__)
+db = SQLAlchemy()
+DB_NAME = "database.db"
 
-@app.route("/home")
-@app.route("/")
-def home():
-    return render_template("homepage.html")
+def create_app():
+    app = Flask( __name__)
+    app.config['SECRET_KEY'] = 'Secret key'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqllite:///{DB_NAME}
+    db.init_app()
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
+    from .views import views
+    app.register_blueprint(views, url_prefix='/')
+
+    
+
+
+    
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
