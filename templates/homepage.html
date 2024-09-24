@@ -100,6 +100,21 @@
     </div>
     </div>
     <button type="submit">Book Ticket</button>  
-    </div>       
+    </div>
+    <script>
+     document.getElementById('origin').addEventListener('change', function() {
+            const originValue = this.value;
+            const destinationSelect = document.getElementById('destination');
+            const options = Array.from(destinationSelect.options);
+            
+            options.forEach(option => {
+                if (option.value === originValue) {
+                    option.disabled = true; // Disable the option if it's the same as origin
+                } else {
+                    option.disabled = false; // Enable other options
+                }
+            });
+        });
+    </script> 
 </body>
 </html>
