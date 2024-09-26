@@ -1,0 +1,454 @@
+body { 
+    font-family: 'Poppins', Arial, sans-serif; /* Added a modern font */
+    text-align: center; 
+    padding: 20px; 
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+h2.coach-title { 
+    font-size: 2em; 
+    margin-top: 20px; 
+    color: #2c3e50; /* Dark, elegant text color */
+    text-transform: uppercase; /* Make the title stand out */
+    letter-spacing: 1.5px;
+}
+
+p.coach-description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #7f8c8d; /* Subtle gray for description */
+}
+
+ul.coach-list { 
+    text-align: left; 
+    margin: 0 auto 30px; 
+    max-width: 600px; 
+    padding-left: 20px;
+    background-color: #ecf0f1; /* Light gray background for the list */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+ul.coach-list li { 
+    margin-bottom: 15px; 
+    font-size: 1.1em;
+    color: #34495e; /* Rich dark text for readability */
+    padding-left: 10px;
+    position: relative;
+}
+
+strong {
+    color: #e74c3c; /* Highlight coach names in red */
+}
+
+
+/* Coach Container */
+/* Common Coach Container Styles */
+.coach-container {
+    display: flex;
+    justify-content: center; /* Ensures the contents inside the coach are centered horizontally */
+    margin: 20px auto; /* Center the coach container on the page */
+    border: 2px solid #333;
+    border-radius: 10px; /* Rounded corners for coach */
+    background-color: #f9f9f9;
+    overflow: hidden;
+    padding: 5px;
+    position: relative; /* Enable absolute positioning for child elements */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+}
+
+/* Coach Type Specific Sizes */
+.economy {
+    width: 280px;
+    height: 850px;
+    margin: 0 auto; /* Ensures economy coach is centered */
+}
+
+.premium-economy {
+    width: 300px;
+    height: 880px;
+    margin: 0 auto; /* Ensures premium economy coach is centered */
+}
+
+.business {
+    width: 320px;
+    height: 900px;
+    margin: 0 auto; /* Ensures business class coach is centered */
+}
+
+.first-class {
+    width: 320px;
+    height: 980px;
+    margin: 0 auto; /* Ensures first class coach is centered */
+}
+
+.executive {
+    width: 320px;
+    height: 1080px;
+    margin: 0 auto; /* Ensures executive class coach is centered */
+}
+
+
+/* Horizontal Line Styles */
+.horizontal-line-left {
+    width: 80%; /* Length of the line */
+    height: 4px; /* Thickness of the line */
+    background-color: #333; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+
+.horizontal-line-right {
+    width: 90%; /* Length of the second line */
+    height: 4px; /* Thickness of the line */
+    background-color: #333; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+/* Vertical Line sytles */
+.vertical-line-right {
+    width: 4px; /* Thickness of the line */
+    height: 15%; /* Length of the line */
+    background-color: #333; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+
+.vertical-line-left {
+    width: 4px; /* Thickness of the line */
+    height: 15%; /* Length of the line */
+    background-color: #333; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+
+/* Economy Class Lines */
+.economy .horizontal-line-left {
+    bottom: 60px; /* Adjust vertical position */
+    left: -110px; /* Adjust horizontal position */
+}
+
+.economy .horizontal-line-right {
+    bottom: 60px; /* Adjust vertical position */
+    left: 162px; /* Adjust horizontal position */
+}
+
+.economy .vertical-line-right {
+    bottom: -65px; /* Adjust vertical position */
+    right: 175px; /* Adjust horizontal position for the right line */
+}
+
+.economy .vertical-line-left {
+    bottom: -65px; /* Adjust vertical position */
+    left: 180px; /* Adjust horizontal position */
+}
+
+/* Premium Economy Class Lines */
+.premium-economy .horizontal-line-left {
+    bottom: 70px; /* Adjust vertical position for this class */
+    left: -125px; /* Adjust horizontal position for this class */
+}
+
+.premium-economy .horizontal-line-right {
+    bottom: 70px; /* Adjust vertical position for this class */
+    left: 185px; /* Adjust horizontal position for this class */
+}
+
+.premium-economy .vertical-line-right {
+    bottom: -60px; /* Adjust vertical position for this class */
+    right: 90px; /* Adjust horizontal position for the right line */
+}
+
+.premium-economy .vertical-line-left {
+    bottom: -60px; /* Adjust vertical position for this class */
+    left: 90px; /* Adjust horizontal position */
+}
+
+/* Business Class Lines */
+.business .horizontal-line-left {
+    bottom: 80px; /* Adjust as needed */
+    left: -130px; /* Adjust as needed */
+}
+
+.business .horizontal-line-right {
+    bottom: 80px; /* Adjust as needed */
+    left: 190px; /* Adjust as needed */
+}
+
+.business .vertical-line-right {
+    bottom: -55px; /* Adjust as needed */
+    right: 100px; /* Adjust horizontal position for the right line */
+}
+
+.business .vertical-line-left {
+    bottom: -55px; /* Adjust as needed */
+    left: 100px; /* Adjust as needed */
+}
+
+/* First Class Lines */
+.first-class .horizontal-line-left {
+    bottom: 90px; /* Adjust as needed */
+    left: -145px; /* Adjust as needed */
+}
+
+.first-class .horizontal-line-right {
+    bottom: 90px; /* Adjust as needed */
+    left: 210px; /* Adjust as needed */
+}
+
+.first-class .vertical-line-right {
+    bottom: -55px; /* Adjust as needed */
+    right: 100px; /* Adjust horizontal position for the right line */
+}
+
+.first-class .vertical-line-left {
+    bottom: -55px; /* Adjust as needed */
+    left: 100px; /* Adjust as needed */
+}
+
+/* Executive Class Lines */
+.executive .horizontal-line-left {
+    bottom: 100px; /* Adjust as needed */
+    left: 215px; /* Adjust as needed */
+}
+
+.executive .horizontal-line-right {
+    bottom: 100px; /* Adjust as needed */
+    left: -180px; /* Adjust as needed */
+}
+
+.executive .vertical-line-right {
+    bottom: -60px; /* Adjust as needed */
+    right: 100px; /* Adjust horizontal position for the right line */
+}
+
+.executive .vertical-line-left {
+    bottom: -60px; /* Adjust as needed */
+    left: 100px; /* Adjust as needed */
+}
+
+
+.door-line-right {
+    width: 5px; /* Thickness of the line */
+    height: 7%; /* Length of the line */
+    background-color: #129de8; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+
+.door-line-left {
+    width: 5px; /* Thickness of the line */
+    height: 7%; /* Length of the line */
+    background-color: #129de8; /* Color of the line */
+    position: absolute; /* Position it absolutely within the coach */
+}
+
+
+.economy .door-line-right {
+    bottom: 80px; /* Adjust vertical position */
+    right: 0px; /* Adjust horizontal position */
+}
+
+.economy .door-line-left {
+    bottom: 80px; /* Adjust vertical position */
+    left: 0px; /* Adjust horizontal position */
+}
+
+.premium-economy .door-line-right {
+    bottom: 100px; /* Adjust vertical position for this class */
+    right: 0px; /* Adjust horizontal position for the right line */
+}
+
+.premium-economy .door-line-left {
+    bottom: 100px; /* Adjust vertical position for this class */
+    left: 0px; /* Adjust horizontal position */
+}
+
+.business .door-line-right {
+    bottom: 100px; /* Adjust as needed */
+    right: 0px; /* Adjust horizontal position for the right line */
+}
+
+.business .door-line-left {
+    bottom: 100px; /* Adjust as needed */
+    left: 0px; /* Adjust as needed */
+}
+
+.first-class .door-line-right {
+    bottom: 120px; /* Adjust as needed */
+    right: 0px; /* Adjust horizontal position for the right line */
+}
+
+.first-class .door-line-left {
+    bottom: 120px; /* Adjust as needed */
+    left: 0px; /* Adjust as needed */
+}
+
+.executive .door-line-right {
+    bottom: 130px; /* Adjust as needed */
+    right: 0px; /* Adjust horizontal position for the right line */
+}
+
+.executive .door-line-left {
+    bottom: 130px; /* Adjust as needed */
+    left: 0px; /* Adjust as needed */
+}
+
+/* Seat Section */
+.seat-section { 
+    display: flex; 
+}
+
+.seat-column { 
+    display: flex; 
+    flex-direction: column; 
+    margin: 0 2px; 
+}
+
+/* Economy Coach */
+.economy .seat { 
+    width: 45px; 
+    height: 60px; 
+    margin: 3px; 
+    background-color: #ccc; 
+}
+
+/* Premium Economy Coach */
+.premium-economy .seat { 
+    width: 50px; 
+    height: 70px; 
+    margin: 3px; 
+    background-color: #add8e6; 
+}
+
+/* Business Coach */
+.business .seat { 
+    width: 60px; 
+    height: 80px; 
+    margin: 3px; 
+    background-color: #90ee90; 
+}
+
+/* First Class Coach */
+.first-class .seat { 
+    width: 70px; 
+    height: 90px; 
+    margin: 3px; 
+    background-color: #ffe4b5; 
+}
+
+/* Executive Coach */
+.executive .seat { 
+    width: 85px; 
+    height: 100px; 
+    margin: 3px; 
+    background-color: #f0e68c; 
+}
+
+/* General Seat Styling */
+.seat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    border-radius: 10px 10px 0 0; /* Curved top */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Selected and Reserved Seats */
+.seat.selected { 
+    background-color: green; 
+    color: white; 
+}
+
+.seat.reserved { 
+    background-color: red; 
+    cursor: not-allowed; 
+    color: white; 
+}
+
+/* Hide Input Radio and Label Adjustment */
+.seat input { 
+    display: none; 
+}
+
+.seat label { 
+    pointer-events: none; 
+}
+
+/* Walkway */
+.walkway { 
+    width: 30px; 
+    background-color: #eee; 
+}
+
+/* Buttons */
+button { 
+    padding: 10px 20px; 
+    background-color: #333; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    margin: 5px 0; /* Add some spacing between buttons */
+}
+
+button.active { 
+    background-color: #007bff; /* Highlight active button in blue */
+}
+
+/* ticket*/
+
+/* Coach navigation */
+.coach-navigation {
+    position: fixed;
+    left: 20px; /* Position the buttons on the left side */
+    top: 100px; /* Space down from the top */
+}
+
+.coach-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.ticket {
+    margin-top: 20px;
+    padding: 30px;
+    border: 2px solid #333;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('/static/images/ticket-background.jpg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.ticket h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.ticket p {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.snap-ticket {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #888;
+}
+
