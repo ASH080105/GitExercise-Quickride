@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUICK RIDE</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <img src="{{ url_for('static', filename='stars.png') }}" id="stars" alt="stars">
+        <img src="{{ url_for('static', filename='train.webp') }}" id="train" alt="train">
+        <h2 id="text">QUICK RIDE</h2>
+        <a href="{{ url_for('login') }}" id="btn">Book your ticket here</a>
+    </section>
+
+    <div id="about-section" class="sec">
+        <h2>About Quick Ride</h2>
+        <p>
+            "Quick Ride" is an efficient and user-friendly train ticketing system designed to simplify the booking process for passengers. 
+            It provides a streamlined interface for users to easily purchase, manage, and access train tickets online. The system features 
+            a responsive design, making it accessible from both desktop and mobile devices. With "Quick Ride," passengers can check train 
+            schedules, select their desired routes, choose seating options, and make payments securely.
+        </p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let stars = document.getElementById('stars');
+            let train = document.getElementById('train');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+
+            window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            train.style.top = value * 0.5 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+
+            });
+        });
+    </script>
+</body>
+</html>
