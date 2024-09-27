@@ -5,6 +5,7 @@
     <link rel="icon" href="type" type="image/icon type">
     <title> QuickRide </title>
     <style>
+        /* Styling for the confirmation box */
         .confirmation {
             display: none;
             margin-top: 20px;
@@ -14,210 +15,224 @@
     </style>
 </head>
 <body>
+    <!-- Background image for the train booking system -->
     <div class="image">
         <img src="C:\Users\ashwi\Project\GitExcercise\static\Trainbackground.jpg" alt="Trainbackground">
     </div>
+
+    <!-- Booking form container -->
     <div class="flex">
         <form id="booking-form">
+            <!-- Origin Station -->
             <div>
-                <label for="origin"> Origin:</label>
-                <select id="origin" name="origin">
-                <option value="Alor Setar">Alor Setar</option>
-                <option value="Anak Bukit">Anak Bukit</option>
-                <option value="Gurun">Gurun</option>
-                <option value="Sungai Petani">Sungai Petani</option>
-                <option value="Arau">Arau</option>
-                <option value="Padang Besar">Padang Besar</option>
-                <option value="Jerantut">Jerantut</option>
-                <option value="Kampung Berkam">Kampung Berkam</option>
-                <option value="Kuala Lipis">Kuala Lipis</option>
-                <option value="Batu Gajah">Batu Gajah</option>
-                <option value="Ipoh">Ipoh</option>
-                <option value="Kampar">Kampar</option>
-                <option value="Kuala Kangsar">Kuala Kangsar</option>
-                <option value="Slim River">Slim River</option>
-                <option value="Sungkai">Sungkai</option>
-                <option value="Taiping">Taiping</option>
-                <option value="Nilai">Nilai</option>
-                <option value="Seremban">Seremban</option>
-                <option value="Kajang">Kajang</option>
-                <option value="Rawang">Rawang</option>
-                <option value="Sungai Buloh">Sungai Buloh</option>
-                <option value="Batang Melaka">Batang Melaka</option>
-                <option value="KL Sentral">KL Sentral</option>
-                <option value="Kuala Lumpur">Kuala Lumpur</option>
-                <option value="Segamat">Segamat</option>
-                <option value="JB Sentral">JB Sentral</option>
-                <option value="Gua Musang">Gua Musang</option>
-                <option value="Pasir Mas">Pasir Mas</option>
-                <option value="Sri Bintang">Sri Bintang</option>
-                <option value="Bukit Mertajam">Bukit Mertajam</option>
-                <option value="Butterworth">Butterworth</option>
+                <label for="origin">Origin:</label>
+                <select id="origin" name="origin" required>
+                    <option value="">Select origin</option>
+                    <option value="Alor Setar">Alor Setar</option>
+                    <option value="Anak Bukit">Anak Bukit</option>
+                    <option value="Gurun">Gurun</option>
+                    <option value="Sungai Petani">Sungai Petani</option>
+                    <option value="Arau">Arau</option>
+                    <option value="Padang Besar">Padang Besar</option>
+                    <option value="Jerantut">Jerantut</option>
+                    <option value="Kampung Berkam">Kampung Berkam</option>
+                    <option value="Kuala Lipis">Kuala Lipis</option>
+                    <option value="Batu Gajah">Batu Gajah</option>
+                    <option value="Ipoh">Ipoh</option>
+                    <option value="Kampar">Kampar</option>
+                    <option value="Kuala Kangsar">Kuala Kangsar</option>
+                    <option value="Slim River">Slim River</option>
+                    <option value="Sungkai">Sungkai</option>
+                    <option value="Taiping">Taiping</option>
+                    <option value="Nilai">Nilai</option>
+                    <option value="Seremban">Seremban</option>
+                    <option value="Kajang">Kajang</option>
+                    <option value="Rawang">Rawang</option>
+                    <option value="Sungai Buloh">Sungai Buloh</option>
+                    <option value="Batang Melaka">Batang Melaka</option>
+                    <option value="KL Sentral">KL Sentral</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Segamat">Segamat</option>
+                    <option value="JB Sentral">JB Sentral</option>
+                    <option value="Gua Musang">Gua Musang</option>
+                    <option value="Pasir Mas">Pasir Mas</option>
+                    <option value="Bukit Mertajam">Bukit Mertajam</option>
+                    <option value="Butterworth">Butterworth</option>
                 </select>
             </div>
+
+            <!-- Destination Station -->
             <div>
-                <label for="destination"> Destination:</label>
-                <select id="destination" name="destination"   
-                <option value="Alor Setar">Alor Setar</option>
-                <option value="Anak Bukit">Anak Bukit</option>
-                <option value="Gurun">Gurun</option>
-                <option value="Sungai Petani">Sungai Petani</option>
-                <option value="Arau">Arau</option>
-                <option value="Padang Besar">Padang Besar</option>
-                <option value="Jerantut">Jerantut</option>
-                <option value="Kampung Berkam">Kampung Berkam</option>
-                <option value="Kuala Lipis">Kuala Lipis</option>
-                <option value="Batu Gajah">Batu Gajah</option>
-                <option value="Ipoh">Ipoh</option>
-                <option value="Kampar">Kampar</option>
-                <option value="Kuala Kangsar">Kuala Kangsar</option>
-                <option value="Slim River">Slim River</option>
-                <option value="Sungkai">Sungkai</option>
-                <option value="Taiping">Taiping</option>
-                <option value="Nilai">Nilai</option>
-                <option value="Seremban">Seremban</option>
-                <option value="Kajang">Kajang</option>
-                <option value="Rawang">Rawang</option>
-                <option value="Sungai Buloh">Sungai Buloh</option>
-                <option value="Batang Melaka">Batang Melaka</option>
-                <option value="KL Sentral">KL Sentral</option>
-                <option value="Kuala Lumpur">Kuala Lumpur</option>
-                <option value="Segamat">Segamat</option>
-                <option value="JB Sentral">JB Sentral</option>
-                <option value="Gua Musang">Gua Musang</option>
-                <option value="Pasir Mas">Pasir Mas</option>
-                <option value="Sri Bintang">Sri Bintang</option>
-                <option value="Bukit Mertajam">Bukit Mertajam</option>
-                <option value="Butterworth">Butterworth</option>
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="">Select destination</option>
+                    <option value="Alor Setar">Alor Setar</option>
+                    <option value="Anak Bukit">Anak Bukit</option>
+                    <option value="Gurun">Gurun</option>
+                    <option value="Sungai Petani">Sungai Petani</option>
+                    <option value="Arau">Arau</option>
+                    <option value="Padang Besar">Padang Besar</option>
+                    <option value="Jerantut">Jerantut</option>
+                    <option value="Kampung Berkam">Kampung Berkam</option>
+                    <option value="Kuala Lipis">Kuala Lipis</option>
+                    <option value="Batu Gajah">Batu Gajah</option>
+                    <option value="Ipoh">Ipoh</option>
+                    <option value="Kampar">Kampar</option>
+                    <option value="Kuala Kangsar">Kuala Kangsar</option>
+                    <option value="Slim River">Slim River</option>
+                    <option value="Sungkai">Sungkai</option>
+                    <option value="Taiping">Taiping</option>
+                    <option value="Nilai">Nilai</option>
+                    <option value="Seremban">Seremban</option>
+                    <option value="Kajang">Kajang</option>
+                    <option value="Rawang">Rawang</option>
+                    <option value="Sungai Buloh">Sungai Buloh</option>
+                    <option value="Batang Melaka">Batang Melaka</option>
+                    <option value="KL Sentral">KL Sentral</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Segamat">Segamat</option>
+                    <option value="JB Sentral">JB Sentral</option>
+                    <option value="Gua Musang">Gua Musang</option>
+                    <option value="Pasir Mas">Pasir Mas</option>
+                    <option value="Bukit Mertajam">Bukit Mertajam</option>
+                    <option value="Butterworth">Butterworth</option>
                 </select>
-          </div>
-          <div>
-                <label for="departure-time">Departure Time and Date:</label>
-                <input type="datetime-local" id="departure-time" name="departure-time" required>
             </div>
+
+            <!-- Date of Travel -->
             <div>
-                <label for="arrival-time">Arrival Time and Date:</label>
-                <input type="datetime-local" id="arrival-time" name="arrival-time" required>
+                <label for="travel-date">Date of Travel:</label>
+                <input type="date" id="travel-date" name="travel-date" required>
             </div>
+
+            <!-- Departure Time Selection -->
+            <div>
+                <label for="departure-time">Departure Time:</label>
+                <select id="departure-time" name="departure-time" required>
+                    <option value="05:30">05:30 AM</option>
+                    <option value="06:00">06:00 AM</option>
+                    <option value="06:30">06:30 AM</option>
+                    <option value="07:00">07:00 AM</option>
+                    <option value="07:30">07:30 AM</option>
+                    <option value="08:00">08:00 AM</option>
+                    <option value="08:30">08:30 AM</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="09:30">09:30 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="11:30">11:30 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="12:30">12:30 PM</option>
+                    <option value="13:00">01:00 PM</option>
+                    <option value="13:30">01:30 PM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="14:30">02:30 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                    <option value="23:30">11:30 PM</option>
+                </select>
+            </div>
+
+            <!-- Number of Passengers -->
             <div>
                 <label for="pax">Number of Pax:</label>
                 <input type="number" id="pax" name="pax" min="1" max="10" required>
             </div>
+
+            <!-- Submit button -->
             <button type="submit">Book Ticket</button>
         </form>
     </div>
 
+    <!-- Booking confirmation box (initially hidden) -->
     <div class="confirmation" id="confirmation">
         <h2>Booking Confirmation</h2>
         <p id="confirmation-details"></p>
     </div>
 
+    <!-- Total Price Display -->
+    <h2>Total Price: <span id="total-price">0.00</span> RM</h2>
+
     <script>
-        function setMinDateTime() {
-            const now = new Date();
-            const localISOTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
-            document.getElementById('departure-time').setAttribute('min', localISOTime);
-        }
-
-        function updateArrivalMinTime() {
-            const departureTime = document.getElementById('departure-time').value;
-            document.getElementById('arrival-time').setAttribute('min', departureTime);
-        }
-
-        document.getElementById('booking-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const origin = document.getElementById('origin').value;
-            const destination = document.getElementById('destination').value;
-            const departureTime = document.getElementById('departure-time').value;
-            const arrivalTime = document.getElementById('arrival-time').value;
-            const pax = document.getElementById('pax').value;
-
-            const confirmationDetails = `
-                Origin: ${origin}<br>
-                Destination: ${destination}<br>
-                Departure Time and Date: ${departureTime}<br>
-                Arrival Time and Date: ${arrivalTime}<br>
-                Number of Pax: ${pax}
-            `;
-            document.getElementById('confirmation-details').innerHTML = confirmationDetails;
-            document.getElementById('confirmation').style.display = 'block';
-        });
-
-        document.getElementById('origin').addEventListener('change', function() {
-            const originValue = this.value;
-            const destinationSelect = document.getElementById('destination');
-            const options = Array.from(destinationSelect.options);
-            
-            options.forEach(option => {
-                option.disabled = (option.value === originValue);
-            });
-        });
-
-        document.getElementById('departure-time').addEventListener('change', updateArrivalMinTime);
-
-        window.onload = function() {
-            setMinDateTime();
-            updateArrivalMinTime(); // Ensure arrival time is updated on load
+        const stationPrices = {
+            "Alor Setar": 0,
+            "Anak Bukit": 0.60,
+            "Gurun": 1.20,
+            "Sungai Petani": 1.80,
+            "Arau": 2.40,
+            "Padang Besar": 3.00,
+            "Jerantut": 3.60,
+            "Kampung Berkam": 4.20,
+            "Kuala Lipis": 4.80,
+            "Batu Gajah": 5.40,
+            "Ipoh": 6.00,
+            "Kampar": 6.60,
+            "Kuala Kangsar": 7.20,
+            "Slim River": 7.80,
+            "Sungkai": 8.40,
+            "Taiping": 9.00,
+            "Nilai": 9.60,
+            "Seremban": 10.20,
+            "Kajang": 10.80,
+            "Rawang": 11.40,
+            "Sungai Buloh": 12.00,
+            "Batang Melaka": 12.60,
+            "KL Sentral": 13.20,
+            "Kuala Lumpur": 13.80,
+            "Segamat": 14.40,
+            "JB Sentral": 15.00,
+            "Gua Musang": 15.60,
+            "Pasir Mas": 16.20,
+            "Bukit Mertajam": 16.80,
+            "Butterworth": 17.40
         };
-    </script>
 
-</body><script>
-        const stations = [
-            "Alor Setar", "Anak Bukit", "Gurun", "Sungai Petani", "Arau", "Padang Besar", "Jerantut", "Kampung Berkam", "Kuala Lipis", "Batu Gajah", "Ipoh",
-            "Kampar", "Kuala Kangsar", "Slim River", "Sungkai", "Taiping", "Nilai",
-            
-        ];
+        // Set minimum date to today's date to prevent booking in the past
+        document.getElementById('travel-date').setAttribute('min', new Date().toISOString().split('T')[0]);
 
-        function calculateFare(origin, destination) {
-            const originIndex = stations.indexOf(origin);
-            const destinationIndex = stations.indexOf(destination);
-            const distance = Math.abs(destinationIndex - originIndex);
-            return (distance * 0.60).toFixed(2);
-        }
-
-        function updatePrice() {
-            const origin = document.getElementById('origin').value;
-            const destination = document.getElementById('destination').value;
-
-            if (origin && destination && origin !== destination) {
-                const totalPrice = calculateFare(origin, destination);
-                document.getElementById('price').innerText = `RM ${totalPrice}`;
-            } else {
-                document.getElementById('price').innerText = 'RM 0.00';
-            }
-        }
-
-        document.getElementById('origin').addEventListener('change', function() {
-            updatePrice();
-            const originValue = this.value;
-            const destinationSelect = document.getElementById('destination');
-            const options = Array.from(destinationSelect.options);
-            
-            options.forEach(option => {
-                option.disabled = option.value === originValue; // Disable same as origin
-            });
-        });
-
-        document.getElementById('destination').addEventListener('change', updatePrice);
-
+        // Form submission handler
         document.getElementById('booking-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+            event.preventDefault(); // Prevent normal form submission
 
             // Gather form data
             const origin = document.getElementById('origin').value;
             const destination = document.getElementById('destination').value;
+            const travelDate = document.getElementById('travel-date').value;
             const departureTime = document.getElementById('departure-time').value;
-            const arrivalTime = document.getElementById('arrival-time').value;
-            const pax = document.getElementById('pax').value;
-            const price = document.getElementById('price').innerText;
+            const pax = parseInt(document.getElementById('pax').value);
 
-            // Display the confirmation
-            alert(`Origin: ${origin}\nDestination: ${destination}\nDeparture Time: ${departureTime}\nArrival Time: ${arrivalTime}\nNumber of Pax: ${pax}\nTotal Price: ${price}`);
+            // Calculate the price
+            const totalStations = Math.abs(stationPrices[destination] - stationPrices[origin]) / 0.60;
+            const pricePerStation = 0.60;
+            const totalPrice = totalStations * pricePerStation * pax;
+
+            // Display booking confirmation details
+            const confirmationDetails = `
+                Origin: ${origin}<br>
+                Destination: ${destination}<br>
+                Date of Travel: ${travelDate}<br>
+                Departure Time: ${departureTime}<br>
+                Number of Pax: ${pax}
+            `;
+            document.getElementById('confirmation-details').innerHTML = confirmationDetails;
+            document.getElementById('confirmation').style.display = 'block';
+
+            // Display total price
+            document.getElementById('total-price').innerText = totalPrice.toFixed(2);
         });
 
-        // Initialize price on page load
-        updatePrice();
+        // Disable destination if it matches the origin
+        document.getElementById('origin').addEventListener('change', function() {
+            const originValue = this.value;
+            const destinationSelect = document.getElementById('destination');
+            const options = Array.from(destinationSelect.options);
+
+            options.forEach(option => {
+                option.disabled = option.value === originValue;
+            });
+        });
     </script>
+</body>
 </html>
+
 
