@@ -1,95 +1,46 @@
-  body {
+ image {
+   
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-    line-height: 1.6;
+    background-image: url('C:\Users\ashwi\Project\GitExcercise\static\Trainbackground.jpg'); /* Set the background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
 }
-header {
-    background-color: #0044cc;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-image {
-    text-align: center;
-    margin-top: 20px;
-}
-image img {
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 10px;
-}
-flex {
+
+.flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: add a semi-transparent white background for contrast */
+    padding: 20px; /* Optional: add some padding */
+    border-radius: 10px; /* Optional: add rounded corners */
 }
 
 form {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-}
-form label {
-    font-weight: bold;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between form elements */
 }
 
-form select, 
-form input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #0044cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-form button:hover {
-    background-color: #003399;
-}
-
-
-form {
+div {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 300px;
-}
-form label {
-    font-weight: bold;
 }
 
-form select, 
-form input {
+label {
+    margin-bottom: 5px;
+}
+
+.confirmation {
+    display: none;
+    margin-top: 20px;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #000;
 }
 
-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #0044cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+button {
+    margin-top: 20px; /* Add some space above the button */
 }
 
-form button:hover {
-    background-color: #003399;
-}
