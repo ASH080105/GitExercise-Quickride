@@ -1,0 +1,37 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="C:\Users\ashwi\Project\GitExcercise\static\css\homepage.css">
+    <link rel="icon" href="type" type="image/icon type">
+    <title> QuickRide Booking History</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Booking History</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Departure Time</th>
+                    <th scope="col">Number of PaX</th>
+                    <th scope="col">Booking Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ booking.origin }}</td>
+                        <td>{{ booking.destination }}</td>
+                        <td>{{ booking.departure_time }}</td>
+                        <td>{{ booking.number_of_pax }}</td>
+                        <td>{{ booking.booking_date }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+``
