@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="ticketpage">
+
+    <h3>Your Ticket</h3>
+    <div class="ticket">
+        <h3>Your Ticket</h3>
+        <p>Seat: {{ seat }}</p>
+        <p>Coach: {{ coach }}</p>
+        <p>Origin: {{ origin }}</p>
+        <p>Destination: {{ destination }}</p>
+        <p>Departure Time: {{ departure_time }}</p>
+        <p>Total Price: RM {{ total_price }}</p> <!-- Display the total price -->
+    </div>
+    <p>TAKE A SNAP OF YOUR TICKET</p>
+
+    <!-- Return to Homepage button -->
+    <a href="{{ url_for('homepage') }}" class="button">Return to Homepage</a>
+
+</body>
+</html>

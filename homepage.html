@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickRide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+</head>
+<body>
+    <div class="homepage">
+        <form action="/logout" method="POST">
+            <button id="logout-btn" type="submit">Logout</button>
+        </form>  
+    <div class="flex">
+        <form id="booking-form" action="{{ url_for('submit_booking') }}" method="POST">
+            <!-- Origin Station -->
+            <div>
+                <label for="origin">Origin:</label>
+                <select id="origin" name="origin" required>
+                    <option value="Alor Setar">Alor Setar</option>
+                    <option value="Anak Bukit">Anak Bukit</option>
+                    <option value="Gurun">Gurun</option>
+                    <option value="Sungai Petani">Sungai Petani</option>
+                    <option value="Arau">Arau</option>
+                    <option value="Padang Besar">Padang Besar</option>
+                    <option value="Jerantut">Jerantut</option>
+                    <option value="Kampung Berkam">Kampung Berkam</option>
+                    <option value="Kuala Lipis">Kuala Lipis</option>
+                    <option value="Batu Gajah">Batu Gajah</option>
+                    <option value="Ipoh">Ipoh</option>
+                    <option value="Kampar">Kampar</option>
+                    <option value="Kuala Kangsar">Kuala Kangsar</option>
+                    <option value="Slim River">Slim River</option>
+                    <option value="Sungkai">Sungkai</option>
+                    <option value="Taiping">Taiping</option>
+                    <option value="Nilai">Nilai</option>
+                    <option value="Seremban">Seremban</option>
+                    <option value="Kajang">Kajang</option>
+                    <option value="Rawang">Rawang</option>
+                    <option value="Sungai Buloh">Sungai Buloh</option>
+                    <option value="Batang Melaka">Batang Melaka</option>
+                    <option value="KL Sentral">KL Sentral</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Segamat">Segamat</option>
+                    <option value="JB Sentral">JB Sentral</option>
+                    <option value="Gua Musang">Gua Musang</option>
+                    <option value="Pasir Mas">Pasir Mas</option>
+                    <option value="Bukit Mertajam">Bukit Mertajam</option>
+                    <option value="Butterworth">Butterworth</option>
+
+                </select>
+            </div>
+
+            <!-- Destination Station -->
+            <div>
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="Alor Setar">Alor Setar</option>
+                    <option value="Anak Bukit">Anak Bukit</option>
+                    <option value="Gurun">Gurun</option>
+                    <option value="Sungai Petani">Sungai Petani</option>
+                    <option value="Arau">Arau</option>
+                    <option value="Padang Besar">Padang Besar</option>
+                    <option value="Jerantut">Jerantut</option>
+                    <option value="Kampung Berkam">Kampung Berkam</option>
+                    <option value="Kuala Lipis">Kuala Lipis</option>
+                    <option value="Batu Gajah">Batu Gajah</option>
+                    <option value="Ipoh">Ipoh</option>
+                    <option value="Kampar">Kampar</option>
+                    <option value="Kuala Kangsar">Kuala Kangsar</option>
+                    <option value="Slim River">Slim River</option>
+                    <option value="Sungkai">Sungkai</option>
+                    <option value="Taiping">Taiping</option>
+                    <option value="Nilai">Nilai</option>
+                    <option value="Seremban">Seremban</option>
+                    <option value="Kajang">Kajang</option>
+                    <option value="Rawang">Rawang</option>
+                    <option value="Sungai Buloh">Sungai Buloh</option>
+                    <option value="Batang Melaka">Batang Melaka</option>
+                    <option value="KL Sentral">KL Sentral</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Segamat">Segamat</option>
+                    <option value="JB Sentral">JB Sentral</option>
+                    <option value="Gua Musang">Gua Musang</option>
+                    <option value="Pasir Mas">Pasir Mas</option>
+                    <option value="Bukit Mertajam">Bukit Mertajam</option>
+                    <option value="Butterworth">Butterworth</option>
+
+                </select>
+            </div>
+
+            <!-- Date of Travel -->
+            <div>
+                <label for="travel-date">Date of Travel:</label>
+                <input type="date" id="travel-date" name="travel-date" required>
+            </div>
+
+            <!-- Departure Time Selection -->
+            <div>
+                <label for="departure-time">Departure Time:</label>
+                <select id="departure-time" name="departure-time" required>
+                    <!-- Time options will be dynamically updated based on the selected date -->
+                </select>
+            </div>
+
+            <!-- Age Category Selection -->
+            <div>
+                <label for="age-category">Select Age Category:</label>
+                <select id="age-category" name="age-category" required>
+                    <option value="student">Student (50% discount)</option>
+                    <option value="adult">Adult (19 and above, no discount)</option>
+                    <option value="senior">Senior Citizen (40 and above, 60% discount)</option>
+                </select>
+            </div>
+
+            <!-- Price Calculation Button -->
+            <div>
+                <button type="button" onclick="calculatePrice()">Calculate Price</button>
+            </div>
+
+            <!-- Price Confirmation Display -->
+            <div class="confirmation" id="confirmation-box" style="display:none;">
+                <p id="confirmation-message"></p>
+                <button type="submit">Proceed to Seat Selection</button>
+            </div>
+        </form>
+
+        <script>
+            // Constants
+            const MALAYSIA_OFFSET = 8 * 60; // Malaysia is UTC + 8 hours
+            const TIME_OPTIONS = [
+                "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", 
+                "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", 
+                "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", 
+                "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"
+            ];
+            const STATIONS_LIST = [
+                "Alor Setar", "Anak Bukit", "Gurun", "Sungai Petani", 
+                "Arau", "Padang Besar", "Jerantut", "Kampung Berkam", 
+                "Kuala Lipis", "Batu Gajah", "Ipoh", "Kampar", 
+                "Kuala Kangsar", "Slim River", "Sungkai", "Taiping", 
+                "Nilai", "Seremban", "Kajang", "Rawang", "Sungai Buloh", 
+                "Batang Melaka", "KL Sentral", "Kuala Lumpur", 
+                "Segamat", "JB Sentral", "Gua Musang", "Pasir Mas", 
+                "Bukit Mertajam", "Butterworth"
+            ];
+        
+            // Get the current Malaysia time (UTC+8)
+            function getMalaysiaCurrentDateTime() {
+                const localOffset = new Date().getTimezoneOffset();
+                return new Date(Date.now() + (MALAYSIA_OFFSET + localOffset) * 60000);
+            }
+        
+            // Disable past dates on the date input
+            const travelDateInput = document.getElementById("travel-date");
+            const currentDateString = getMalaysiaCurrentDateTime().toISOString().split("T")[0];
+            travelDateInput.setAttribute("min", currentDateString);
+        
+            // Function to dynamically update time options based on selected date
+            travelDateInput.addEventListener("change", function() {
+                const selectedDate = new Date(this.value);
+                const departureTimeSelect = document.getElementById("departure-time");
+                const malaysiaCurrentTime = getMalaysiaCurrentDateTime();
+                const isToday = selectedDate.toDateString() === malaysiaCurrentTime.toDateString();
+        
+                // Clear existing time options
+                departureTimeSelect.innerHTML = "";
+        
+                // Loop through the time options and disable past times for today's date
+                TIME_OPTIONS.forEach(function(time) {
+                    const timeOption = document.createElement("option");
+                    timeOption.value = time;
+                    timeOption.text = time;
+        
+                    if (isToday) {
+                        const [hours, minutes] = time.split(":");
+                        const timeOptionDate = new Date(selectedDate);
+                        timeOptionDate.setHours(hours, minutes, 0, 0);
+        
+                        if (timeOptionDate > malaysiaCurrentTime) {
+                            departureTimeSelect.appendChild(timeOption); // Show only future times for today
+                        }
+                    } else {
+                        departureTimeSelect.appendChild(timeOption); // All times are valid for future dates
+                    }
+                });
+            });
+        
+            // Price calculation logic
+            function calculatePrice() {
+                const origin = document.getElementById("origin").value;
+                const destination = document.getElementById("destination").value;
+                const ageCategory = document.getElementById("age-category").value;
+                const confirmationBox = document.getElementById("confirmation-box");
+                const confirmationMessage = document.getElementById("confirmation-message");
+        
+                if (!origin || !destination) {
+                    alert("Please select both origin and destination.");
+                    return;
+                }
+        
+                // Find the index of the origin and destination in the stations list
+                const originIndex = STATIONS_LIST.indexOf(origin);
+                const destinationIndex = STATIONS_LIST.indexOf(destination);
+        
+                // Calculate number of stations between origin and destination
+                const numberOfStations = Math.abs(destinationIndex - originIndex);
+                
+                // Calculate price based on number of stations
+                let price = numberOfStations * 2; // RM 2 per station
+        
+                // Apply discount based on age category
+                if (ageCategory === "student") {
+                    price *= 0.5; // 50% discount for students
+                } else if (ageCategory === "senior") {
+                    price *= 0.4; // 60% discount for senior citizens
+                }
+        
+                // Display the confirmation message
+                confirmationMessage.innerText = `Total price: RM ${price.toFixed(2)}`;
+                confirmationBox.style.display = "block";
+            }
+        </script>
+        
+    </div>
+</body>
+</html>

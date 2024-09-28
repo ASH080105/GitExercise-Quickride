@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function selectSeat(seatElement) {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            selectedSeats.forEach(s => s.classList.remove('selected'));
+            
+            seatElement.classList.add('selected');
+            seatElement.querySelector('input').checked = true; // Mark the radio button as selected
+        }
+    </script>
+</head>
+<body class="seat-selection">
+
+    <h2 class="coach-title">Select Your Coach Type</h2>
+    <p class="coach-description">We offer various types of coaches to suit your comfort level and budget:</p>
+    <ul class="coach-list">
+        <li><strong>Economy Class (Coaches 1 & 2):</strong> Affordable seating, basic amenities for short trips. - Free of charge</li>
+        <li><strong>Premium Economy (Coach 3):</strong> More legroom, complimentary snacks, and free Wi-Fi. - RM10 per seat</li>
+        <li><strong>Business Class (Coach 4):</strong> Spacious seats, power outlets, complimentary snacks, and priority boarding. -RM15 per seat</li>
+        <li><strong>First Class (Coach 5):</strong> Luxury leather seats, gourmet meals, private entertainment. - RM20 per seat</li>
+        <li><strong>Executive Class (Coach 6):</strong> Private booths, fully reclining beds, fine dining, VIP lounge access. - RM25 per seat</li>
+    </ul>
+    <p class="coach-description"> SELECT YOUR PREFERRED COACH BY CLICKING A BUTTON ON THE LEFT</p>
+
+    <div class="coach-navigation">
+        <h3>Select a Coach:</h3>
+        <div class="coach-buttons">
+            <a href="{{ url_for('seat_selection', coach=1) }}"><button class="{% if coach == 1 %}active{% endif %}">Coach 1</button></a>
+            <a href="{{ url_for('seat_selection', coach=2) }}"><button class="{% if coach == 2 %}active{% endif %}">Coach 2</button></a>
+            <a href="{{ url_for('seat_selection', coach=3) }}"><button class="{% if coach == 3 %}active{% endif %}">Coach 3</button></a>
+            <a href="{{ url_for('seat_selection', coach=4) }}"><button class="{% if coach == 4 %}active{% endif %}">Coach 4</button></a>
+            <a href="{{ url_for('seat_selection', coach=5) }}"><button class="{% if coach == 5 %}active{% endif %}">Coach 5</button></a>
+            <a href="{{ url_for('seat_selection', coach=6) }}"><button class="{% if coach == 6 %}active{% endif %}">Coach 6</button></a>
+        </div>
+    </div>
+
+    <h2>Choose Your Seat in Coach {{ coach }}</h2>
+    <form action="/confirm" method="POST">
+        <input type="hidden" name="coach" value="{{ coach }}">
+
+        <div class="coach-container {% if coach in [1, 2] %}economy{% elif coach == 3 %}premium-economy{% elif coach == 4 %}business{% elif coach == 5 %}first-class{% elif coach == 6 %}executive{% endif %}">
+            <div class="seat-section">
+                {% if coach == 5 or coach == 6 %} <!-- First and Executive Class special case -->
+                    <div class="seat-column">
+                        {% for seat in range(1, 9) %} <!-- Left row for Executive -->
+                            <div class="seat {% if seat in reserved %}reserved{% endif %}" onclick="selectSeat(this)">
+                                <input type="radio" id="seat{{ seat }}" name="seat" value="{{ seat }}" {% if seat in reserved %} disabled {% endif %}>
+                                <label for="seat{{ seat }}">{{ seat }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="walkway"></div>
+                    <div class="seat-column">
+                        {% for seat in range(9, 17) %} <!-- Right row for Executive -->
+                            <div class="seat {% if seat in reserved %}reserved{% endif %}" onclick="selectSeat(this)">
+                                <input type="radio" id="seat{{ seat }}" name="seat" value="{{ seat }}" {% if seat in reserved %} disabled {% endif %}>
+                                <label for="seat{{ seat }}">{{ seat }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {% for column in range(num_columns) %}
+                        <div class="seat-column">
+                            {% for seat in range(column * seats_per_column + 1, (column + 1) * seats_per_column + 1) %}
+                                <div class="seat {% if seat in reserved %}reserved{% endif %}" onclick="selectSeat(this)">
+                                    <input type="radio" id="seat{{ seat }}" name="seat" value="{{ seat }}" {% if seat in reserved %} disabled {% endif %}>
+                                    <label for="seat{{ seat }}">{{ seat }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% if column == 1 %} <!-- Only add walkway after the second column -->
+                            <div class="walkway"></div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="horizontal-line-left"></div>
+            <div class="horizontal-line-right"></div>
+            <div class="vertical-line-right"></div>
+            <div class="vertical-line-left"></div>
+            <div class="door-line-right"></div>
+            <div class="door-line-left"></div>
+        </div>
+        
+        <button type="submit">Confirm Seat</button>
+    </form>
+</body>
+</html>

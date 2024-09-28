@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.homepage {
+    background-image: url('homepagebg.jpg'); /* Make sure to use the correct path */
+    height: 100vh; /* Set to full viewport height */
+    background-size: cover; /* Cover the whole area */
+    position: relative; /* Position relative for absolute positioning of child elements */
+}
+
+#logout-btn {
+    position: absolute; /* Position the logout button */
+    top: 20px; /* Adjust position as needed */
+    right: 20px; /* Adjust position as needed */
+    background-color: #ff4d4d; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+#logout-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.flex {
+    display: flex;
+    justify-content: center; /* Center the form */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Full height of the parent */
+    position: relative; /* Relative for absolute positioning of child elements */
+}
+
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between form elements */
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.confirmation {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #fff8f8;
+}
+
+button {
+    margin-top: 20px; /* Add some space above the button */
+}
+
+.confirmation {
+    margin-top: 20px; /* Space above the confirmation box */
+    padding: 15px; /* Padding inside the confirmation box */
+    background-color: #e7f1ff; /* Light blue background */
+    border: 1px solid #007bff; /* Border matching the button color */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center align text */
+}
+
+#confirmation-message {
+    font-size: 18px; /* Larger font for the confirmation message */
+    font-weight: bold; /* Make the message bold */
+    color: #007bff; /* Match color with the button */
+}
+
+/* Styling for the Logout button */
+body {
+    margin: 0;
+    padding: 0;
+}
+
