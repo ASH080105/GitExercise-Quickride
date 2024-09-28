@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="C:\Users\ashwi\Project\GitExcercise\static\css\homepage.css">
+    <link rel="icon" href="type" type="image/icon type">
+    <title>Book Ticket</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Ticket</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="origin">Origin:</label>
+                <select class="form-control" id="origin" name="origin">
+                        <option value="{{ station }}">{{ station }}</option>
+                   
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <select class="form-control" id="destination" name="destination">
+                        <option value="{{ station }}">{{ station }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="departure_time">Departure Time:</label>
+                <input type="datetime-local" class="form-control" id="departure_time" name="departure_time">
+            </div>
+            </div>
+            <div class="form-group">
+                <label for="pax">Number of Pax:</label>
+                <input type="number" class="form-control" id="pax" name="pax">
+            </div>
+            <button type="submit" class="btn btn-primary">Book Ticket</button>
+        </form>
+    </div>
+</body>
+</html>
+
